@@ -36,6 +36,7 @@ public class ParseApplications {
 
             for (int i = 0; i < arr.length(); i++)
             {
+                String types= "";
 
                 entry = new FeedEntry();
 
@@ -44,6 +45,14 @@ public class ParseApplications {
                 entry.setSummary(arr.getJSONObject(i).getString("height"));
                 entry.setImgURL(arr.getJSONObject(i).getString("img"));
                 entry.setReleaseDate(arr.getJSONObject(i).getString("weight"));
+                entry.setPokemonHeight(arr.getJSONObject(i).getString("height"));
+
+                for (int n = 0; n < arr.getJSONObject(i).getJSONArray("type").length(); n++)
+                {
+                        types += arr.getJSONObject(i).getJSONArray("type").get(n) + "\n";
+                }
+
+                entry.setPokemonTypes(types);
 
                 applications.add(entry);
             }

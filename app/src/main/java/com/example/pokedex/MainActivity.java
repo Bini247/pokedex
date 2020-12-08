@@ -43,13 +43,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-//            Log.d(TAG, "onPostExecute: o parâmetro recebido é " + s);
             ParseApplications parser = new ParseApplications();
             parser.parse(s);
 
-//            FeedAdapter feedAdapter = new FeedAdapter(
-//                    MainActivity.this, R.layout.list_records, parser.getApplications()
-//            );
             FeedImageAdapter feedAdapter = new FeedImageAdapter(
                     MainActivity.this, R.layout.list_record_with_image, parser.getApplications()
             );
@@ -68,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private String downloadContents(String urlPath) {
-            // StringBuilder é mais eficiente para concatenar strings
             StringBuilder result = new StringBuilder();
 
             try {

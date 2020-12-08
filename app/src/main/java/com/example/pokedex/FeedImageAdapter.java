@@ -19,6 +19,8 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import com.squareup.picasso.Picasso;
+
 
 public class FeedImageAdapter extends ArrayAdapter {
     private static final String TAG = "FeedAdapter";
@@ -58,8 +60,10 @@ public class FeedImageAdapter extends ArrayAdapter {
         viewHolder.tvTitle.setText(currentApp.getName());
         viewHolder.tvNewAuthor.setText(currentApp.getArtist());
         viewHolder.tvDate.setText(currentApp.getReleaseDate());
+        viewHolder.pokemonHeight.setText(currentApp.getPokemonHeight());
+        viewHolder.pokemonTypes.setText(currentApp.getPokemonTypes());
+        Picasso.get().load(currentApp.getImgURL()).into(viewHolder.ivAppImg);
 
-        new DownloadImageTask(viewHolder.ivAppImg).execute(currentApp.getImgURL());
 
         return convertView;
     }
@@ -68,12 +72,16 @@ public class FeedImageAdapter extends ArrayAdapter {
         final TextView tvTitle;
         final TextView tvNewAuthor;
         final TextView tvDate;
+        final TextView pokemonHeight;
+        final TextView pokemonTypes;
         final ImageView ivAppImg;
 
         ViewHolder(View v) {
             this.tvTitle = v.findViewById(R.id.tvTitle);
             this.tvNewAuthor = v.findViewById(R.id.tvNewAuthor);
             this.tvDate = v.findViewById(R.id.tvDate);
+            this.pokemonHeight = v.findViewById(R.id.pokemonHeight);
+            this.pokemonTypes = v.findViewById(R.id.pokemonTypes);
             this.ivAppImg = v.findViewById(R.id.ivAppImg);
         }
     }

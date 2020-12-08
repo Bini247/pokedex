@@ -4,6 +4,8 @@ public class FeedEntry {
     private String name;
     private String artist;
     private String releaseDate;
+    private String pokemonHeight;
+    private String pokemonTypes;
     private String summary;
     private String imgURL;
 
@@ -29,6 +31,22 @@ public class FeedEntry {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public String getPokemonHeight() {
+        return pokemonHeight;
+    }
+
+    public void setPokemonHeight(String pokemonHeight) {
+        this.pokemonHeight = pokemonHeight;
+    }
+
+    public String getPokemonTypes() {
+        return pokemonTypes;
+    }
+
+    public void setPokemonTypes(String pokemonHeight) {
+        this.pokemonTypes = pokemonHeight;
     }
 
     public String getSummary() {
